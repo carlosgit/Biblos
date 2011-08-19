@@ -1,0 +1,45 @@
+/* 
+    Document   : 0_Biblioteca_CSS
+    Created on : 08-ago-2011, 22:52:40
+    Author     : red
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+body { 
+    
+    background-color: aquamarine;
+    background-image: url( http://www.bubok.es/blog/wp-content/uploads/librerias.jpg);
+    background-repeat: repeat-x;
+    background-position: center;
+}
+table{
+    margin-left: 40%;
+    border-color: black;
+    margin-top: 30px;
+    
+ }
+ h1 {
+     color: white;
+     margin-top: 15px;
+     margin-bottom: 10px;
+     text-align:: center; 
+ }
+ p{
+     margin-top: 30px;
+ }
+ hr {
+     margin-top: 40px;
+ }
+ td,tr,p{
+     text-align: center;
+ }
+ textarea{
+     color: blue;
+ }
+
