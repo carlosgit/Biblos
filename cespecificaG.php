@@ -15,13 +15,17 @@ $usuario=$_SESSION['usuario'];
 
             <fieldset>
                 <legend>Consulta espec&iacute;fica</legend>
-                <h3>Tipo de busqueda</h3>
+                <fieldset>
+                    <legend>Tipo de busqueda</legend>
+                
                 <input type='radio' name='tipo_busqueda' value='1'>Dewey
                 <input type='radio' name='tipo_busqueda' value='2' checked>Titulo
+                </fieldset>
                 
                 
                 </select>
                 <h3>Datos de la busqueda</h3>
+                
                 <label>Introduzca los datos:<p>
                 </label><input type='text' name='busqueda' size='25' maxlength='25'><br>
                 <br><input type='submit' name='Envio' value='Envio'>
