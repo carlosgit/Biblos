@@ -19,8 +19,8 @@ controlSesion();
                     </ul> </ul>                   
             <ul><li>Administración
                     <ul>
-                        <li>Gestión Catalogo
-                        <li>Gestion Usuario
+                        <li><a href='gestionlibrog.php'>Gestión Catalogo</a>
+                        <li><a href='gestionusuario.php'>Gestion Usuario</a>
                     </ul>            
 
             </ul>
