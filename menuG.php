@@ -20,7 +20,7 @@ controlSesion();
             <ul><li>Administración
                     <ul>
                         <li><a href='gestionlibrog.php'>Gestión Catalogo</a>
-                        <li><a href='gestionusuario.php'>Gestion Usuario</a>
+                        <li><a href='gestionusuariog.php'>Gestion Usuario</a>
                     </ul>            
 
             </ul>

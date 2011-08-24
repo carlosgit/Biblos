@@ -11,7 +11,7 @@ $usuario=$_SESSION['usuario'];
         <title>Consulta espec&iacute;fica (<?php echo $usuario['nombre_usuario']?>)</title>
     </head>
     <body>
-       <form action='cespecificaP.php' method='post'>
+       <form action='cespecificaP.php' method='POST'>
 
             <fieldset>
                 <legend>Consulta espec&iacute;fica</legend>

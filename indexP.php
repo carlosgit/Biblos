@@ -1,7 +1,7 @@
 <?php
 
 include "funciones.php";
-session_start();
+
 
 
 $dni = $_POST['dni'];
