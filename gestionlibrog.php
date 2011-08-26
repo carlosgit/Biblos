@@ -1,40 +1,72 @@
+<?php
+include "funciones.php";
 
+//controlSesion();
+?>
 <html>
     <head>
-        <title>Librería Online - Gestion de biblioteca </title>
+        <title>Librería Online - Gestion de Catalogo </title>
     </head>
     <body>
-        
-        
-        <h1>Gestion de libros</h1>
+
+
+        <h1>Gestion de Catalogo</h1>
         <p>Los campos con * son obligatorios </p>
-        <form action="gestionlibrop.php" method="post">
+        <form action="gestioncatalogop.php" method="post">
             <table width="369" border=1 cellpadding="0" cellspacing="0">
                 <tr>
-                    <td>cod dewey</td>
-                    <td><input type=text name=id maxlength=9 size=9>
+                    <td>*Codigo Dewey:</td>
+                    <td><?php cargardorLista("dewey", "id_categoria_dewey", "categoria_dewey", "1");?><br></td>
+                </tr>
+                <tr>
+                    <td>*Autor:</td>
+                    <td><?php cargardorLista2("autor", "id_autor", "apellido1", "nombre_autor", "1");?></td>
+                </tr>                
+                <tr>
+                    <td>Titulo:</td>
+                    <td> <input type=text name=titulo maxlength=30 size=30>
                         *<br></td></tr>
                 <tr>
-                    <td>id apellido autor</td>
-                    <td> <input type=text name=autor maxlength=30 size=30>
+                    <td>Fecha Publicacion:</td>
+                    <td> <input type=text name=f_publicacion maxlength=30 size=30>
                         *<br></td></tr>
                 <tr>
-                    <td>editorial</td>
-                    <td> <input type=text name=editorial maxlength=30 size=30>
+                    <td>Fecha Adquisicion:</td>
+                    <td><input type=text name=f_adquisicion maxlength=30 size=30>
                         *<br></td></tr>
                 <tr>
-                    <td>titulo del libro </td>
-                    <td><input type=text name=nombre maxlength=30 size=30>
+                    <td>Sinopsis:</td>
+                    <td><textarea cols="50" name=sinopsis></textarea>
                         *<br></td></tr>
                 <tr>
-                    <td>sinopsis</td>
-                    <td><input type=text name=sinopsis maxlength=30 size=30>
-                        *<br></td></tr>
-                
+                    <td>Editorial:</td>
+                    <td><?php cargardorLista("editorial", "id_editorial", "nombre_editorial", "1");?>*</td>
+                    </tr>
                 <tr>
-                    <td>isbn</td>
+                    <td>Edicion:</td>
+                    <td><input type=text name=edicion maxlength=30 size=30>
+                        *<br></td></tr>
+                <tr>
+                    <td>Numero de Paginas:</td>
+                    <td><input type=text name=num_paginas maxlength=30 size=30>
+                        *<br></td></tr>
+                <tr>
+                    <td>ISBN:</td>
                     <td><input type=text name=isbn maxlength=30 size=30>
                         *<br></td></tr>
+                <tr>
+                    <td>Fecha de Prestamo:</td>
+                    <td><input type=text name=f_prestamo maxlength=10 size=10>
+                        *<br></td></tr>
+                <tr>
+                    <td>Fecha de Devolucion Propuesta:</td>
+                    <td><input type=text name=f_propuesta maxlength=10 size=10>
+                        *<br></td></tr>
+                <tr>
+                    <td>Fecha Devolucion Efectiva:</td>
+                    <td><input type=text name=f_entrega maxlength=10 size=10>
+                        *<br></td></tr>
+
                 <tr>
                     <td>Acci&oacute;n</td>
                     <td>
@@ -53,12 +85,4 @@
         </form>
     </body>
 </html>
-<?php
-include "funciones.php";
-            controlSesion();
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>

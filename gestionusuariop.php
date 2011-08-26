@@ -25,7 +25,7 @@
             if ($accion == 3)
                 borrarusuario($dni, $nombre_usuario);
             if ($accion == 4)
-                listarusuario ($dni, $nombre, $direccion, $nombre);
+                listarusuario ($dni, $nombre_usuario, $apellido1, $es_administrador);
 
 //  else
             // if (!$dni || !$apellido1 || !$apellido2 || !$nombre || !$accion) {
@@ -39,16 +39,16 @@
             //$telefono = htmlentities($telefono);
             // $nombre_usuario = htmlentities($nombre_usuario);
 
-            @ $sgbd = mysql_pconnect("localhost", "root", "");
-            if (!$sgbd) {
-                echo "Error: No se puede conectar a la base de datos. Por favor inténtalo de nuevo.";
-                exit;
-            }
-            $db = mysql_select_db("biblos-g1");
-            if (!$db) {
-                echo "Error: No se puede conectar a la base de datos. Por favor inténtalo de nuevo.";
-                exit;
-            }
+           // @ $sgbd = mysql_pconnect("localhost", "root", "");
+           // if (!$sgbd) {
+           //     echo "Error: No se puede conectar a la base de datos. Por favor inténtalo de nuevo.";
+           //     exit;
+           // }
+           // $db = mysql_select_db("biblos-g1");
+           // if (!$db) {
+            //    echo "Error: No se puede conectar a la base de datos. Por favor inténtalo de nuevo.";
+            //    exit;
+           // }
             if ($accion == 1)
                 altausuario($dni, $email, $direccion, $telefono, $nombre_usuario, $clave, $es_administrador, $apellido1, $apellido2, $plantilla_id_plantilla);
             if ($accion == 2)

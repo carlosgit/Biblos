@@ -249,6 +249,7 @@ function listarCatalogoXCampo($campoBusqueda, $valorBusqueda, $isExact) {
             die("Fallo al listar") . mysql_error();
     }
 }
+
 function borrarusuario($dni, $nombre_usuario) {
     //controlSesion();
     //iniciaBD();
@@ -278,4 +279,51 @@ function altausuario($dni, $email, $direccion, $telefono, $nombre_usuario, $clav
     else
         die("Fallo al insertar") . mysql_error();
 }
+
+function cargardorLista($nombreTabla, $codCampo, $valorCampo1, $visibles=1) {
+    iniciaBD();
+    $query = "SELECT * FROM $nombreTabla";
+    $resultado = mysql_query($query);
+
+    echo "<select name='$nombreTabla' size='$visibles'>";
+    while ($salida = mysql_fetch_array($resultado)) {
+        echo "<option value='" . $salida[$codCampo] . "'>(".$salida[$codCampo].") ".htmlentities($salida[$valorCampo1]) . "</option>";
+        //$tabla[$nombreTabla,$i] = $salida;
+    }
+    echo "</select><br />";
+  
+
+}
+
+function cargardorLista2($nombreTabla, $codCampo, $valorCampo1, $valorCampo2, $visibles=1) {
+    iniciaBD();
+    $query = "SELECT * FROM $nombreTabla";
+    $resultado = mysql_query($query);
+
+    echo "<select name='$nombreTabla' size='$visibles'>";
+    while ($salida = mysql_fetch_array($resultado)) {
+        echo "<option value='".$salida[$codCampo]."-".  strtoupper(substr($salida[$valorCampo1],0,3))."'>" . htmlentities($salida[$valorCampo1] . ", " . $salida[$valorCampo2]) . "</option>";
+    }
+    echo "</select><br />";
+    
+        while ($salida = mysql_fetch_array($resultado)) {
+        echo "\n<input type='hidden' name='$nombreTabla" . "_" . $salida[$codCampo] . "' value='" . htmlentities($salida[$valorCampo1]) . "'>";
+        //$tabla[$nombreTabla,$i] = $salida;
+    }
+    
+}
+
+function consultaValorDesdeCogigo($nombreTabla, $campoId, $colConsultada, $valorCampoId) {
+    iniciaBD();
+    $query = "SELECT $colConsultada FROM $nombreTabla where $campoId = '$valorCampoId'";
+    $resultado = mysql_query($query);
+
+    
+    $salida = mysql_fetch_array($resultado);
+    return $salida['$colConsultada'];
+    
+}
+
+
+
 ?>

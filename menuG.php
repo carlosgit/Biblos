@@ -1,6 +1,6 @@
 <?php
 include "./funciones.php";
-controlSesion();
+//controlSesion();
 ?>
 
 <!DOCTYPE html>
