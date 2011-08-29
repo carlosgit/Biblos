@@ -20,9 +20,6 @@
             $edicion = $_POST['edicion'];
             $num_paginas = $_POST['num_paginas'];
             $isbn = $_POST['isbn'];
-            $f_prestamo = $_POST['f_prestamo'];
-            $f_propuesta = $_POST['f_propuesta'];
-            $f_entrega = $_POST['f_entrega'];
             $accion = $_POST['accion'];
 
 
