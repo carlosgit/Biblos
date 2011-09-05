@@ -1,5 +1,5 @@
 <?php
-include "./funciones.php";
+include "./1-funciones.php";
 controlSesion();
 ?>
 <!DOCTYPE html>
@@ -11,6 +11,7 @@ controlSesion();
     <body>
         <h1>Listado general del catalogo.</h1>
         <?php
+        // funcion contenida en el archivo funciones.php
         listarCatalogo();
         ?>
     </body>

@@ -1,3 +1,10 @@
+
+<?php
+//controlSesion();
+include_once "../1-funciones.php";
+include "./gusuari/olds/fusuario.php";
+?>
+
 <html>
     <head>
         <title>Gestión Catalogo</title>
@@ -6,8 +13,7 @@
         <h1>Gestión de Catalogo </h1>
         <p>
             <?php
-            include "funciones.php";
-            controlSesion();
+        
             iniciaBD();
 
             $cod_dewey = $_POST['dewey'];
@@ -21,7 +27,6 @@
             $num_paginas = $_POST['num_paginas'];
             $isbn = $_POST['isbn'];
             $accion = $_POST['accion'];
-
 
             // Tokenizar para separar el codigo de las 3 primeras letras del apellido1 del autor
             // Ejemplo: 000-FOL
@@ -50,16 +55,12 @@
                     die("Accion en gestion de catalogo invalida");
             }
             ?>
-        </p>
-        <p>&nbsp;</p>
-        <p><a href="menuG.php">Volver a menu</a></p>//boton de retorno
+       <p><a href="2-menuG.php">Volver a menu</a></p>//boton de retorno
     </body>
 </html>
 ?>
-<?php
-controlSesion();
-iniciaBD();
-?>
+
+
 <?php
 
 function altacatalogo($cod_dewey, $idAutor, $titulo, $f_publicacion, $f_adquisicion, $sinopsis, $editorial, $edicion, $num_paginas, $isbn) {
@@ -69,11 +70,13 @@ function altacatalogo($cod_dewey, $idAutor, $titulo, $f_publicacion, $f_adquisic
     $idApellido = substr(consultaValorDesdeCogigo("autor", "id_autor", "apellido1", "$idAutor"), 0, 3);
 
     $query = "insert into titulo
-        (dewey_id_categoria_dewey,id_apellido,id_titulo, nombre, fecha_publicacion, fecha_adquisicion, sinopsis, numero_paginas, isbn, editorial_id_editorial, edicion)
-       values ('$cod_dewey','$idAutor','$idTitulo', '$titulo', '$f_publicacion', '$f_adquisicion', '$sinopsis', '$num_paginas', '$isbn', '1', '$edicion')";
+                     (dewey_id_categoria_dewey,id_apellido,id_titulo, nombre, fecha_publicacion, fecha_adquisicion, sinopsis, numero_paginas, isbn, editorial_id_editorial, edicion)
+              values ('$cod_dewey','$idAutor','$idTitulo', '$titulo', '$f_publicacion', '$f_adquisicion', '$sinopsis', '$num_paginas', '$isbn', '1', '$edicion')";
+   
     $resultado = mysql_query($query);
+    
     if ($resultado) {
-        echo mysql_affected_rows() . " Alta de libro correcta.";
+        echo mysql_affected_rows()." Alta de libro correcta.";
         header("location:mostrarFichaLibro.php?c1=$cod_dewey&c2=$idAutor&c3=$idTitulo");
     }
     else
@@ -82,10 +85,9 @@ function altacatalogo($cod_dewey, $idAutor, $titulo, $f_publicacion, $f_adquisic
 
 function modificartalogo($cod_dewey, $idAutor, $idTitulo, $titulo, $f_publicacion, $f_adquisicion, $sinopsis, $num_paginas, $isbn, $edicion) {
     $query = "UPDATE titulo
-            SET dewey_id_categoria_dewey='$cod_dewey', id_titulo='$idTitulo, 
-                nombre='$titulo', fecha_publicacion='$f_publicacion', fecha_adquisicion='$f_adquisicion', 
-                sinopsis='$sinopsis', numero_paginas='$num_paginas', isbn='$isbn', editorial_id_editorial='1', 
-                edicion='$edicion' WHERE dewey_id_categoria_dewey='$cod_dewey'";
+                 SET dewey_id_categoria_dewey='$cod_dewey', id_titulo='$idTitulo, nombre='$titulo', fecha_publicacion='$f_publicacion', fecha_adquisicion='$f_adquisicion',
+                     sinopsis='$sinopsis', numero_paginas='$num_paginas', isbn='$isbn', editorial_id_editorial='1', edicion='$edicion' 
+               WHERE dewey_id_categoria_dewey='$cod_dewey'";
 
     $resultado = mysql_query($query);
     if (mysql_affected_rows() == 0) {
@@ -99,10 +101,13 @@ function modificartalogo($cod_dewey, $idAutor, $idTitulo, $titulo, $f_publicacio
 }
 
 function borrarcatalogo($id, $nombre) {
-    @ $sgbd = mysql_pconnect("localhost", "root", "");
-    $db = mysql_select_db("biblos-g1");
+    
+    iniciaBD();
+    
     $query = "DELETE FROM titulo WHERE dewey_id_categoria_dewey=$id AND nombre='$nombre'";
+    
     $resultado = mysql_query($query);
+    
     if (mysql_affected_rows() == 0)
         echo ("El registro que quiere borrar no existe.");
     else

@@ -5,7 +5,7 @@
         <title><h1>Login</h1></title>
     </head>
     <body>
-        <form action='indexP.php' method='post'>
+        <form action='0-loginP.php' method='post'>
             Su DNI: <input type='text' name='dni'><br>
             Su password: <input type='password' name='password'><br>
             <input type='submit' value='Aceptar'/>

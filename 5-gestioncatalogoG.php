@@ -1,39 +1,33 @@
 <?php
-include 'funciones.php';
+include '1-funciones.php';
 
 //controlSesion();
 ?>
 <html>
     <head>
-        
-
-
         <title>Librería Online - Gestion de Catalogo </title>
-        <script type='text/javascript' src='./recursos/funciones.js'></script>
+        <script type='text/javascript' src='./recursos/1-funciones.js'></script>
         <style type='text/css'>@import url(recursos/calendar.css);</style>
 
         <script type='text/javascript' src='js/calendar.js'></script>
         <script type='text/javascript' src='js/calendar-es.js'></script>
         <script type='text/javascript' src='js/calendar-setup.js'></script>
-        
-     
-
-
+         <script type="text/javascript" src="js/validaciones.js"></script>
+   
     </head>
     <body>
 
-
         <h1>Gestion de Catalogo</h1>
         <p>Los campos con * son obligatorios </p>
-        <form action='gestioncatalogop.php' method='post' onSubmit='return Valida(this);'>
+        <form action='5-gestioncatalogoP.php' method='post' onSubmit='return ValidaCampoVacioConFormato2(this);'>
             <table width='369' border='1'cellpadding='0' cellspacing='0'>
                 <tr>
                     <td>*Codigo Dewey:</td>
-                    <td><?php cargardorLista('dewey', 'id_categoria_dewey', 'categoria_dewey', '1'); ?><br></td>
+                    <td><?php cargardorLista('dewey', 'id_categoria_dewey', 'categoria_dewey', '1', "Debes seleccionar alguno"); ?><br></td>
                 </tr>
                 <tr>
-                    <td>*Autor:</td>
-                    <td><?php cargardorLista2('autor', 'id_autor', 'apellido1', 'nombre_autor', '1'); ?></td>
+                    <td>*Autor:</td>    
+                    <td><?php cargardorLista2('autor', 'id_autor', 'apellido1', 'nombre_autor', '4',"Selecciona alguno"); ?></td>
                 </tr>                
                 <tr>
                     <td>Titulo:</td>
@@ -53,7 +47,7 @@ include 'funciones.php';
                         *<br></td></tr>
                 <tr>
                     <td>Editorial:</td>
-                    <td><?php cargardorLista('editorial', 'id_editorial', 'nombre_editorial', '1'); ?>*</td>
+                    <td><?php cargardorLista('editorial', 'id_editorial', 'nombre_editorial', '1', "Selecciona"); ?>*</td>
                 </tr>
                 <tr>
                     <td>Edicion:</td>
@@ -67,9 +61,6 @@ include 'funciones.php';
                     <td>ISBN:</td>
                     <td><input type='text' name='isbn' maxlength='30' size='30'>
                         *<br></td></tr>
-
-
-
                 <tr>
                     <td>Acci&oacute;n</td>
                     <td>

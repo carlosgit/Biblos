@@ -1,5 +1,5 @@
 <?php
-include "funciones.php";
+include "1-funciones.php";
 controlSesion();
 $usuario=$_SESSION['usuario'];
 ?>
@@ -11,7 +11,7 @@ $usuario=$_SESSION['usuario'];
         <title>Consulta espec&iacute;fica (<?php echo $usuario['nombre_usuario']?>)</title>
     </head>
     <body>
-       <form action='cespecificaP.php' method='POST'>
+       <form action='4-cespecificaP.php' method='POST'>
 
             <fieldset>
                 <legend>Consulta espec&iacute;fica</legend>

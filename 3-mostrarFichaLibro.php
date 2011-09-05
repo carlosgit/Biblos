@@ -1,5 +1,5 @@
 <?php
-include "funciones.php";
+include "1-funciones.php";
 controlSesion();
 ?>
 <!DOCTYPE html>
@@ -65,9 +65,7 @@ controlSesion();
             echo "<td>" . htmlentities($titulo['numero_paginas']) . "</td>";
             echo "<td>" . $titulo['fecha_publicacion'] . "</td>";
             echo "<td>" . $titulo['fecha_adquisicion'] . "</td>";
-            
-            
-            
+         
             echo "<tr>\n";
 
             echo"</table>";
